@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Restaurante Response",
+  "type": "object",
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "agendamento": {
+              "type": "string"
+            },
+            "quantidadePessoas": {
+              "type": "integer"
+            },
+            "restaurante": {
+              "type": "object"
+            },
+            "cliente": {
+              "type": "object"
+            },
+            "avaliacao": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "id",
+            "status",
+            "agendamento",
+            "quantidadePessoas",
+            "restaurante",
+            "cliente",
+            "avaliacao"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "content"
+  ]
+}

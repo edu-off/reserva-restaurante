@@ -1,0 +1,47 @@
+services:
+  app:
+    container_name: reserva-restaurante-application
+    ports:
+      - 8080:8080
+    networks:
+      - spring-mysql-network
+    depends_on:
+      db:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_URL_CONNECTION=jdbc:mysql://localhost:3306/reserva-database
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=pass
+
+  db:
+    container_name: reserva-restaurante-database
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - spring-mysql-network
+    volumes:
+      - db-volume:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=reserva-database
+      - MYSQL_ROOT_PASSWORD=root-pass
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 55
+
+volumes:
+  db-volume:
+    driver: local
+
+networks:
+  spring-mysql-network:
+    name: spring-mysql-network
