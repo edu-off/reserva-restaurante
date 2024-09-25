@@ -3,8 +3,6 @@ services:
     container_name: reserva-restaurante-application
     ports:
       - 8080:8080
-    networks:
-      - spring-mysql-network
     depends_on:
       db:
         condition: service_healthy
@@ -12,7 +10,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - DATABASE_URL_CONNECTION=jdbc:mysql://localhost:3306/reserva-database
+      - DATABASE_URL_CONNECTION=jdbc:mysql://db:3306/reserva-database
       - DATABASE_USER=user
       - DATABASE_PASSWORD=pass
 
@@ -22,8 +20,6 @@ services:
     restart: always
     ports:
       - 3306:3306
-    networks:
-      - spring-mysql-network
     volumes:
       - db-volume:/var/lib/mysql
     environment:
@@ -41,7 +37,3 @@ services:
 volumes:
   db-volume:
     driver: local
-
-networks:
-  spring-mysql-network:
-    name: spring-mysql-network
