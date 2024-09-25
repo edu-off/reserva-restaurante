@@ -67,8 +67,24 @@ mvn test
 mvn test integration-test
 ```
 
-* Para exibição do relatõrio de testes:
+* Para exibição do relatório de testes:
 ```shell
 allure serve target/allure-results
 ```
 Obs.: O node js e o allure devem estar instalados e o build da aplicação estar concluído.
+
+* Para execução de testes de performance:
+```shell
+mvn gatling:test -P performance-test
+```
+Obs.: A aplicação deve estar em execução.
+
+* Para criação do container da aplicação via docker, pelo arquivo Dockerfile:
+```shell
+docker build -t <organização>/<nome aplicação>:<tag da versão> . --no-cache
+```
+
+* Para subir container da aplicação e servidor de banco de dados via docker compose:
+```shell
+docker-compose -f docker-compose.yml up -d
+```
