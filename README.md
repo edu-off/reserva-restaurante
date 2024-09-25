@@ -18,35 +18,49 @@ Tech Challenge Pós Tech FIAP - Back end de aplicação que controla reservas de
 make build
 ```
 
+<br><br/>
+
 * Para execução de testes unitários:
 ```shell
 make unit-test
 ```
+
+<br><br/>
 
 * Para execução de testes integrados:
 ```shell
 make integration-test
 ```
 
+<br><br/>
+
 * Para execução de todos os testes:
 ```shell
 make test
 ```
+
+<br><br/>
 
 * Para execução de build do container da aplicação:
 ```shell
 make docker-build
 ```
 
+<br><br/>
+
 * Para subir container da aplicação:
 ```shell
 make docker-start
 ```
 
+<br><br/>
+
 * Para exibir relatório de testes:
 ```shell
 make relatorio-testes
 ```
+
+<br><br/>
 
 * Para efetuar build da aplicação e gerar relatório de testes:
 ```shell
@@ -54,6 +68,7 @@ make gerando-relatorio-testes
 ```
 Obs.: Para todos comandos listados, o make deve estar instalado na máquina de quem o for executar. Já para somente os dois últimos comandos, o node js e o allure devem estar instalados. 
 
+<br><br/>
 
 ## **Comandos importantes via terminal**
 
@@ -62,10 +77,14 @@ Obs.: Para todos comandos listados, o make deve estar instalado na máquina de q
 mvn test
 ```
 
+<br><br/>
+
 * Para execução de teste integrados:
 ```shell
 mvn test integration-test
 ```
+
+<br><br/>
 
 * Para exibição do relatório de testes:
 ```shell
@@ -73,16 +92,22 @@ allure serve target/allure-results
 ```
 Obs.: O node js e o allure devem estar instalados e o build da aplicação estar concluído.
 
+<br><br/>
+
 * Para execução de testes de performance:
 ```shell
 mvn gatling:test -P performance-test
 ```
 Obs.: A aplicação deve estar em execução.
 
+<br><br/>
+
 * Para criação do container da aplicação via docker, pelo arquivo Dockerfile:
 ```shell
 docker build -t <organização>/<nome aplicação>:<tag da versão> . --no-cache
 ```
+
+<br><br/>
 
 * Para subir container da aplicação e servidor de banco de dados via docker compose:
 ```shell
