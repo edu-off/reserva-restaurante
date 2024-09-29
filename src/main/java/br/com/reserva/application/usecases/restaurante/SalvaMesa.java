@@ -2,6 +2,7 @@ package br.com.reserva.application.usecases.restaurante;
 
 import br.com.reserva.application.gateways.MesaGateway;
 import br.com.reserva.domain.entities.Mesa;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class SalvaMesa {
         this.mesaGateway = mesaGateway;
     }
 
+    @Transactional
     public Mesa execute(Mesa mesa) {
         return mesaGateway.salvaMesa(mesa);
     }

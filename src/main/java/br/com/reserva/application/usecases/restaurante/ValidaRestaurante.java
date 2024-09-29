@@ -4,6 +4,7 @@ import br.com.reserva.application.dto.RestauranteDTO;
 import br.com.reserva.application.exceptions.RestauranteException;
 import br.com.reserva.domain.entities.Restaurante;
 import br.com.reserva.domain.objectsvalue.Endereco;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import static br.com.reserva.application.factories.RestauranteFactory.createRestaurante;
@@ -11,6 +12,7 @@ import static br.com.reserva.application.factories.RestauranteFactory.createRest
 @Service
 public class ValidaRestaurante {
 
+    @Transactional
     public Restaurante execute(RestauranteDTO restauranteDTO, Endereco endereco) {
         Restaurante restaurante;
         try {

@@ -7,6 +7,7 @@ import br.com.reserva.application.gateways.ClienteGateway;
 import br.com.reserva.application.gateways.RestauranteGateway;
 import br.com.reserva.domain.entities.Cliente;
 import br.com.reserva.domain.entities.Restaurante;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,7 @@ public class VerificaExistenciaCliente {
         this.clienteGateway = clienteGateway;
     }
 
+    @Transactional
     public Cliente execute(String clienteEmail) {
         Cliente cliente = clienteGateway.buscaClientePorId(clienteEmail);
         if (Objects.isNull(cliente))

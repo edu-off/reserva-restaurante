@@ -3,6 +3,7 @@ package br.com.reserva.application.usecases.restaurante;
 import br.com.reserva.application.dto.EnderecoDTO;
 import br.com.reserva.application.exceptions.EnderecoException;
 import br.com.reserva.domain.objectsvalue.Endereco;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import static br.com.reserva.application.factories.EnderecoFactory.createEndereco;
@@ -10,6 +11,7 @@ import static br.com.reserva.application.factories.EnderecoFactory.createEnderec
 @Service
 public class ValidaEndereco {
 
+    @Transactional
     public Endereco execute(EnderecoDTO enderecoDTO) {
         Endereco endereco;
         try {

@@ -130,3 +130,5 @@ CREATE TABLE IF NOT EXISTS `reserva-database`.`endereco` (
     ON UPDATE NO ACTION);
 
 CREATE INDEX `fk_endereco_restaurante_idx` ON `reserva-database`.`endereco` (`restaurante_id` ASC) VISIBLE;
+
+INSERT INTO `reserva-database`.`cliente` (email, nome, ddd, telefone) VALUES ('teste@teste.com.br', 'user test', 11, 911112222);

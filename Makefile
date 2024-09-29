@@ -14,11 +14,11 @@ performance-test:
 	@echo "executando testes de performance"
 	@mvn gatling:test -P performance-test
 
-test: unit-test integration-test
+system-test:
+	@echo "executando testes de sistema"
+	@mvn test -P system-test
 
-docker-build:
-	@echo "executando build do container da aplicacao"
-	@docker build -t fiap/reserva-restaurante:0.1 . --no-cache
+test: unit-test integration-test
 
 docker-start:
 	@echo "subindo container da aplicacao"

@@ -8,7 +8,6 @@ import br.com.reserva.application.usecases.restaurante.ValidaEndereco;
 import br.com.reserva.application.usecases.restaurante.ValidaRestaurante;
 import br.com.reserva.domain.entities.Restaurante;
 import br.com.reserva.domain.objectsvalue.Endereco;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -32,7 +31,6 @@ public class CadastraRestauranteController {
         this.presenter = presenter;
     }
 
-    @Transactional
     public RestauranteDTO execute(RestauranteDTO restauranteDTO) {
         Endereco endereco = validaEndereco.execute(restauranteDTO.getEndereco());
         Restaurante restaurante = validaRestaurante.execute(restauranteDTO, endereco);

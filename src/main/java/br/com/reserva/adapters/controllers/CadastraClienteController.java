@@ -8,7 +8,6 @@ import br.com.reserva.application.usecases.cliente.SalvaCliente;
 import br.com.reserva.application.usecases.cliente.ValidaCliente;
 import br.com.reserva.application.usecases.cliente.VerificaExistenciaCliente;
 import br.com.reserva.domain.entities.Cliente;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -31,7 +30,6 @@ public class CadastraClienteController {
         this.presenter = presenter;
     }
 
-    @Transactional
     public ClienteDTO execute(ClienteDTO clienteDTO) {
         Cliente cliente;
         try {

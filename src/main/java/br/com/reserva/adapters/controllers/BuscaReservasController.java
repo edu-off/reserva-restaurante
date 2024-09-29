@@ -7,7 +7,6 @@ import br.com.reserva.application.usecases.reserva.BuscaReservasPorClientePeriod
 import br.com.reserva.application.usecases.reserva.BuscaReservasPorRestaurante;
 import br.com.reserva.application.usecases.reserva.BuscaReservasPorRestaurantePeriodo;
 import br.com.reserva.domain.entities.Reserva;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,25 +36,21 @@ public class BuscaReservasController {
         this.presenter = presenter;
     }
 
-    @Transactional
     public Page<ReservaDTO> porCliente(String clienteId, Pageable pageable) {
         Page<Reserva> reservas = buscaReservasPorCliente.execute(clienteId, pageable);
         return presenter.execute(reservas, pageable);
     }
 
-    @Transactional
     public Page<ReservaDTO> porRestaurante(Long restauranteId, Pageable pageable) {
         Page<Reserva> reservas = buscaReservasPorRestaurante.execute(restauranteId, pageable);
         return presenter.execute(reservas, pageable);
     }
 
-    @Transactional
     public Page<ReservaDTO> porClientePeriodo(String clienteId, LocalDateTime inicio, LocalDateTime fim, Pageable pageable) {
         Page<Reserva> reservas = buscaReservasPorClientePeriodo.execute(clienteId, inicio, fim, pageable);
         return presenter.execute(reservas, pageable);
     }
 
-    @Transactional
     public Page<ReservaDTO> porRestaurantePeriodo(Long restauranteId, LocalDateTime inicio, LocalDateTime fim, Pageable pageable) {
         Page<Reserva> reservas = buscaReservasPorRestaurantePeriodo.execute(restauranteId, inicio, fim, pageable);
         return presenter.execute(reservas, pageable);

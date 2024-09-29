@@ -89,7 +89,7 @@ public class ReservaResourceIT {
                     .when().get("/reserva/busca-cliente/{clienteEmail}", restauranteModelCreated.getId())
                     .then()
                     .statusCode(HttpStatus.OK.value())
-                    .body(matchesJsonSchemaInClasspath("./schemas/ReservaResponseSchema.json"));
+                    .body(matchesJsonSchemaInClasspath("./schemas/ListaReservaResponseSchema.json"));
         }
 
         @Test
@@ -99,7 +99,7 @@ public class ReservaResourceIT {
                     .when().get("/reserva/busca-restaurante/{restauranteId}", restauranteModelCreated.getId())
                     .then()
                     .statusCode(HttpStatus.OK.value())
-                    .body(matchesJsonSchemaInClasspath("./schemas/ReservaResponseSchema.json"));
+                    .body(matchesJsonSchemaInClasspath("./schemas/ListaReservaResponseSchema.json"));
         }
 
         @Test
@@ -112,7 +112,7 @@ public class ReservaResourceIT {
                     .get("/reserva/busca-cliente-periodo/{clienteEmail}", restauranteModelCreated.getId())
                     .then()
                     .statusCode(HttpStatus.OK.value())
-                    .body(matchesJsonSchemaInClasspath("./schemas/ReservaResponseSchema.json"));
+                    .body(matchesJsonSchemaInClasspath("./schemas/ListaReservaResponseSchema.json"));
         }
 
         @Test
@@ -125,7 +125,7 @@ public class ReservaResourceIT {
                     .get("/reserva/busca-restaurante-periodo/{restauranteId}", restauranteModelCreated.getId())
                     .then()
                     .statusCode(HttpStatus.OK.value())
-                    .body(matchesJsonSchemaInClasspath("./schemas/ReservaResponseSchema.json"));
+                    .body(matchesJsonSchemaInClasspath("./schemas/ListaReservaResponseSchema.json"));
         }
 
     }

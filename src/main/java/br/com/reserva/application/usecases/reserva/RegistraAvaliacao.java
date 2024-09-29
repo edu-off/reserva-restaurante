@@ -2,6 +2,7 @@ package br.com.reserva.application.usecases.reserva;
 
 import br.com.reserva.application.gateways.AvaliacaoGateway;
 import br.com.reserva.domain.entities.Avaliacao;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class RegistraAvaliacao {
         this.avaliacaoGateway = avaliacaoGateway;
     }
 
+    @Transactional
     public void execute(Avaliacao avaliacao) {
         avaliacaoGateway.salvaAvaliacao(avaliacao);
     }

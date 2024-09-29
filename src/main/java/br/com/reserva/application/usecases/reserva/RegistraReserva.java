@@ -2,6 +2,7 @@ package br.com.reserva.application.usecases.reserva;
 
 import br.com.reserva.application.gateways.ReservaGateway;
 import br.com.reserva.domain.entities.Reserva;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class RegistraReserva {
         this.reservaGateway = reservaGateway;
     }
 
+    @Transactional
     public Reserva execute(Reserva reserva) {
         return reservaGateway.salvaReserva(reserva);
     }

@@ -7,7 +7,6 @@ import br.com.reserva.application.usecases.restaurante.ValidaMesa;
 import br.com.reserva.application.usecases.restaurante.VerificaExistenciaRestaurante;
 import br.com.reserva.domain.entities.Mesa;
 import br.com.reserva.domain.entities.Restaurante;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -28,7 +27,6 @@ public class CadastraMesaController {
         this.presenter = presenter;
     }
 
-    @Transactional
     public MesaDTO execute(Long restauranteId, MesaDTO mesaDTO) {
         Mesa mesa = validaMesa.execute(mesaDTO);
         Restaurante restaurante  = verificaExistenciaRestaurante.execute(restauranteId);

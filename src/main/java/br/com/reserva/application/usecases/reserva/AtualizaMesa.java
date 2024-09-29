@@ -4,6 +4,7 @@ import br.com.reserva.application.exceptions.ReservaException;
 import br.com.reserva.application.gateways.MesaGateway;
 import br.com.reserva.domain.entities.Mesa;
 import br.com.reserva.domain.enums.StatusMesa;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class AtualizaMesa {
         this.mesaGateway = mesaGateway;
     }
 
+    @Transactional
     public void execute(Long mesaId, StatusMesa status) {
         Mesa mesa = mesaGateway.buscaMesaPorId(mesaId);
         if (Objects.isNull(mesa))

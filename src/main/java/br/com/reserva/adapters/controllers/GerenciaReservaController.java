@@ -6,7 +6,6 @@ import br.com.reserva.application.usecases.reserva.*;
 import br.com.reserva.domain.entities.Reserva;
 import br.com.reserva.domain.enums.StatusMesa;
 import br.com.reserva.domain.enums.StatusReserva;
-import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +38,6 @@ public class GerenciaReservaController {
         this.mapper = mapper;
     }
 
-    @Transactional
     public ReservaDTO execute(Long id, ReservaDTO reservaDTO) {
         Reserva reserva = buscaReservasPorId.execute(id);
         Reserva reservaChanged = alteraDadosReserva.execute(reserva, reservaDTO);

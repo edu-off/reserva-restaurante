@@ -2,6 +2,7 @@ package br.com.reserva.application.usecases.cliente;
 
 import br.com.reserva.application.gateways.ClienteGateway;
 import br.com.reserva.domain.entities.Cliente;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class SalvaCliente {
         this.clienteGateway = clienteGateway;
     }
 
+    @Transactional
     public Cliente execute(Cliente cliente) {
         return clienteGateway.salvaCliente(cliente);
     }

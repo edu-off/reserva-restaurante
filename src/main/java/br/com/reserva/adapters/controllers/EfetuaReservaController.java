@@ -14,7 +14,6 @@ import br.com.reserva.domain.entities.Mesa;
 import br.com.reserva.domain.entities.Reserva;
 import br.com.reserva.domain.entities.Restaurante;
 import br.com.reserva.domain.enums.StatusMesa;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -48,7 +47,6 @@ public class EfetuaReservaController {
         this.presenter = presenter;
     }
 
-    @Transactional
     public ReservaDTO execute(ReservaDTO reservaDTO) {
         Cliente cliente = verificaExistenciaCliente.execute(reservaDTO.getCliente().getEmail());
         Restaurante restaurante = verificaExistenciaRestaurante.execute(reservaDTO.getRestaurante().getId());

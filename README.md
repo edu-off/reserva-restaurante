@@ -34,16 +34,21 @@ make integration-test
 
 <br><br/>
 
-* Para execução de todos os testes:
+* Para execução de testes de performance:
 ```shell
-make test
+make performance-test
+```
+
+* Para execução de testes de sistema:
+```shell
+make system-test
 ```
 
 <br><br/>
 
-* Para execução de build do container da aplicação:
+* Para execução de todos os testes:
 ```shell
-make docker-build
+make test
 ```
 
 <br><br/>
@@ -86,14 +91,6 @@ mvn test integration-test
 
 <br><br/>
 
-* Para exibição do relatório de testes:
-```shell
-allure serve target/allure-results
-```
-Obs.: O node js e o allure devem estar instalados e o build da aplicação estar concluído.
-
-<br><br/>
-
 * Para execução de testes de performance:
 ```shell
 mvn gatling:test -P performance-test
@@ -102,10 +99,19 @@ Obs.: A aplicação deve estar em execução.
 
 <br><br/>
 
-* Para criação do container da aplicação via docker, pelo arquivo Dockerfile:
+* Para execução de testes de sistema:
 ```shell
-docker build -t <organização>/<nome aplicação>:<tag da versão> . --no-cache
+mvn test -P system-test
 ```
+Obs.: A aplicação deve estar em execução.
+
+<br><br/>
+
+* Para exibição do relatório de testes:
+```shell
+allure serve target/allure-results
+```
+Obs.: O node js e o allure devem estar instalados e o build da aplicação estar concluído.
 
 <br><br/>
 

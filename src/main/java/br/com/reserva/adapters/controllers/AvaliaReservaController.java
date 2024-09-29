@@ -6,7 +6,6 @@ import br.com.reserva.application.usecases.reserva.ValidaAvaliacao;
 import br.com.reserva.application.usecases.reserva.VerificaExistenciaReserva;
 import br.com.reserva.domain.entities.Avaliacao;
 import br.com.reserva.domain.entities.Reserva;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -26,7 +25,6 @@ public class AvaliaReservaController {
         this.registraAvaliacao = registraAvaliacao;
     }
 
-    @Transactional
     public void execute(Long reservaId, AvaliacaoDTO avaliacaoDTO) {
         Reserva reserva = verificaExistenciaReserva.execute(reservaId);
         Avaliacao avaliacao = validaAvaliacao.execute(avaliacaoDTO);

@@ -2,6 +2,7 @@ package br.com.reserva.application.usecases.reserva;
 
 import br.com.reserva.application.gateways.ReservaGateway;
 import br.com.reserva.domain.entities.Reserva;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ public class BuscaReservasPorRestaurantePeriodo {
         this.reservaGateway = reservaGateway;
     }
 
+    @Transactional
     public Page<Reserva> execute(Long restauranteId, LocalDateTime periodoInicial, LocalDateTime periodoFinal, Pageable pageable) {
         return reservaGateway.buscaReservasPorRestaurantePeriodo(restauranteId, periodoInicial, periodoFinal, pageable);
     }

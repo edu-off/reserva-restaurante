@@ -3,56 +3,43 @@
   "title": "Restaurante Response",
   "type": "object",
   "properties": {
-    "content": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "nome": {
-              "type": "string"
-            },
-            "culinaria": {
-              "type": "string"
-            },
-            "capacidade": {
-              "type": "integer"
-            },
-            "horarioAbertura": {
-              "type": "string"
-            },
-            "horarioEncerramento": {
-              "type": "string"
-            },
-            "ddd": {
-              "type": "integer"
-            },
-            "telefone": {
-              "type": "integer"
-            },
-            "endereco": {
-              "type": "null"
-            }
-          },
-          "required": [
-            "id",
-            "nome",
-            "culinaria",
-            "capacidade",
-            "horarioAbertura",
-            "horarioEncerramento",
-            "ddd",
-            "telefone",
-            "endereco"
-          ]
-        }
-      ]
+    "id": {
+      "type": "integer"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "culinaria": {
+      "type": "string"
+    },
+    "capacidade": {
+      "type": "integer"
+    },
+    "horarioAbertura": {
+      "type": "string"
+    },
+    "horarioEncerramento": {
+      "type": "string"
+    },
+    "ddd": {
+      "type": "integer"
+    },
+    "telefone": {
+      "type": "integer"
+    },
+    "endereco": {
+      "type": "object"
     }
   },
   "required": [
-    "content"
+    "id",
+    "nome",
+    "culinaria",
+    "capacidade",
+    "horarioAbertura",
+    "horarioEncerramento",
+    "ddd",
+    "telefone",
+    "endereco"
   ]
 }

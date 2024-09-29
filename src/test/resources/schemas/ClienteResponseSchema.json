@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Cliente Response",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "ddd": {
+      "type": "number"
+    },
+    "telefone": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "email",
+    "nome",
+    "ddd",
+    "telefone"
+  ]
+}

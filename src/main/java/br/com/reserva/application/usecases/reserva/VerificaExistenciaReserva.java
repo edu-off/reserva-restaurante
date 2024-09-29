@@ -4,6 +4,7 @@ import br.com.reserva.application.exceptions.EntityNotFoundException;
 import br.com.reserva.application.exceptions.ReservaException;
 import br.com.reserva.application.gateways.ReservaGateway;
 import br.com.reserva.domain.entities.Reserva;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class VerificaExistenciaReserva {
         this.reservaGateway = reservaGateway;
     }
 
+    @Transactional
     public Reserva execute(Long reservaId) {
         Reserva reserva = reservaGateway.buscaReservaPorId(reservaId);
         if (Objects.isNull(reserva))

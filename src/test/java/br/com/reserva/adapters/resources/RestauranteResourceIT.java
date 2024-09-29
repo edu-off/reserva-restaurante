@@ -57,7 +57,7 @@ public class RestauranteResourceIT {
                     .when().get("/restaurante/busca-nome/{nome}", "restaurante")
                     .then()
                     .statusCode(HttpStatus.OK.value())
-                    .body(matchesJsonSchemaInClasspath("./schemas/RestauranteResponseSchema.json"));
+                    .body(matchesJsonSchemaInClasspath("./schemas/ListaRestauranteResponseSchema.json"));
         }
 
         @Test
@@ -67,7 +67,7 @@ public class RestauranteResourceIT {
                     .when().get("/restaurante/busca-culinaria/{culinaria}", "arabe")
                     .then()
                     .statusCode(HttpStatus.OK.value())
-                    .body(matchesJsonSchemaInClasspath("./schemas/RestauranteResponseSchema.json"));
+                    .body(matchesJsonSchemaInClasspath("./schemas/ListaRestauranteResponseSchema.json"));
         }
 
     }
